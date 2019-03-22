@@ -31,9 +31,11 @@ kern_init(void) {
 
     pic_init();                 // init interrupt controller
     idt_init();                 // init interrupt descriptor table
-
-    clock_init();               // init clock interrupt
-    intr_enable();              // enable irq interrupt
+    cprintf("1");
+    clock_init();   
+    cprintf("2");            // init clock interrupt
+    intr_enable();
+    cprintf("3");              // enable irq interrupt
 
     //LAB1: CAHLLENGE 1 If you try to do it, uncomment lab1_switch_test()
     // user/kernel mode switch test
