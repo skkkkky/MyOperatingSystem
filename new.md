@@ -15,4 +15,16 @@ ebp:0x00007be8 eip:0x00100050args:0x00000000 0x00000000 0x00000000 0x00007c4f
     kern/init/init.c:28: kern_init+79
 ebp:0x00007bf8 eip:0x00007d6eargs:0xc031fcfa 0xc08ed88e 0x64e4d08e 0xfa7502a8 
     <unknow>: -- 0x00007d6d --
+++ setup timer interrupts
+100 ticks
+100 ticks
+100 ticks
+100 ticks
+100 ticks
+100 ticks
+100 ticks
+100 ticks
+100 ticks
+100 ticks
+100 ticks
 
