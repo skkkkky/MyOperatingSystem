@@ -27,4 +27,21 @@ ebp:0x00007bf8 eip:0x00007d6eargs:0xc031fcfa 0xc08ed88e 0x64e4d08e 0xfa7502a8
 100 ticks
 100 ticks
 100 ticks
+++ setup timer interrupts
+100 ticks
+100 ticks
+100 ticks
+kbd [116] t
+kbd [000] 
+100 ticks
+100 ticks
+kbd [104] h
+kbd [000] 
+100 ticks
+kbd [117] u
+kbd [000] 
+100 ticks
+100 ticks
+100 ticks
+100 ticks
 
