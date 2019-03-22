@@ -293,7 +293,7 @@ print_stackframe(void) {
     uint32_t ebp = read_ebp();
     uint32_t eip = read_eip();
     int i;
-    for(i = 0; i < STACKFRAME_DEPTH; i++)
+    for(i = 0; i < STACKFRAME_DEPTH && ebp!=0; i++)
     {
         uint32_t *call_argu = (uint32_t *) ebp + 2;
         cprintf("ebp:0x%08x eip:0x%08x args:0x%08x 0x%08x 0x%08x 0x%08x 0x%08x\n", ebp, eip, call_argu[0], call_argu[1], call_argu[2], call_argu[3]);
