@@ -1,0 +1,98 @@
+(gdb) c
+Continuing.
+=> 0x7c00:      cli
+
+Breakpoint 1, 0x00007c00 in ?? ()
+(gdb) si
+=> 0x7c01:      cld
+0x00007c01 in ?? ()
+(gdb) si
+=> 0x7c02:      xor    %eax,%eax
+0x00007c02 in ?? ()
+(gdb) si
+=> 0x7c04:      mov    %eax,%ds
+0x00007c04 in ?? ()
+(gdb) si
+=> 0x7c06:      mov    %eax,%es
+0x00007c06 in ?? ()
+(gdb) si
+=> 0x7c08:      mov    %eax,%ss
+0x00007c08 in ?? ()
+(gdb) si
+=> 0x7c0a:      in     $0x64,%al
+0x00007c0a in ?? ()
+(gdb) si
+=> 0x7c0c:      test   $0x2,%al
+0x00007c0c in ?? ()
+(gdb) si
+=> 0x7c0e:      jne    0x7c0a
+0x00007c0e in ?? ()
+(gdb) si
+=> 0x7c10:      mov    $0xd1,%al
+0x00007c10 in ?? ()
+(gdb) si
+=> 0x7c12:      out    %al,$0x64
+0x00007c12 in ?? ()
+(gdb) si
+=> 0x7c14:      in     $0x64,%al
+0x00007c14 in ?? ()
+(gdb) si
+=> 0x7c16:      test   $0x2,%al
+0x00007c16 in ?? ()
+(gdb) si
+=> 0x7c18:      jne    0x7c14
+0x00007c18 in ?? ()
+(gdb) si
+=> 0x7c1a:      mov    $0xdf,%al
+0x00007c1a in ?? ()
+(gdb) si
+=> 0x7c1c:      out    %al,$0x60
+0x00007c1c in ?? ()
+(gdb) si
+=> 0x7c1e:      lgdtl  (%esi)
+0x00007c1e in ?? ()
+(gdb) si
+=> 0x7c23:      mov    %cr0,%eax
+0x00007c23 in ?? ()
+(gdb) si
+=> 0x7c26:      or     $0x1,%ax
+0x00007c26 in ?? ()
+(gdb) si
+=> 0x7c2a:      mov    %eax,%cr0
+0x00007c2a in ?? ()
+(gdb) si
+=> 0x7c2d:      ljmp   $0xb866,$0x87c32
+0x00007c2d in ?? ()
+(gdb) si
+=> 0x7c32:      mov    $0x10,%ax
+0x00007c32 in ?? ()
+(gdb) si
+=> 0x7c36:      mov    %eax,%ds
+0x00007c36 in ?? ()
+0x00007c36 in ?? ()
+(gdb) si
+=> 0x7c38:      mov    %eax,%es
+0x00007c38 in ?? ()
+(gdb) si
+=> 0x7c3a:      mov    %eax,%fs
+0x00007c3a in ?? ()
+(gdb) si
+=> 0x7c3c:      mov    %eax,%gs
+0x00007c3c in ?? ()
+(gdb) si
+=> 0x7c3e:      mov    %eax,%ss
+0x00007c3e in ?? ()
+(gdb) si
+=> 0x7c40:      mov    $0x0,%ebp
+0x00007c40 in ?? ()
+(gdb) si
+=> 0x7c45:      mov    $0x7c00,%esp
+0x00007c45 in ?? ()
+(gdb) si
+=> 0x7c4a:      call   0x7d0d
+0x00007c4a in ?? ()
+
+
+
+
+
