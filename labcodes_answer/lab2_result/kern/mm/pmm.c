@@ -386,7 +386,7 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
         else 
             return NULL;					//不需要创建且无二级页表则转换失败
     }
-    return   (pte_t *)(PDE_ADDR(*pdep)) + PTX(la));
+    return   (pte_t *)(PDE_ADDR(*pdep)) + PTX(la);
     //获得二级页表表项
    	//PDE_ADDR(*pdep)为根据页目录表的表项获取二级页表基址，即表项舍弃后12位标志位。
    	//(pte_t *)为转换为二级页表表项的指针
