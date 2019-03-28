@@ -359,39 +359,19 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
     }
     return NULL;          // (8) return page table entry
 #endif
-    // pde_t *pdep = &pgdir[PDX(la)];
-    // if (!(*pdep & PTE_P)) {
-    //     struct Page *page;
-    //     if (!create || (page = alloc_page()) == NULL) {
-    //         return NULL;
-    //     }
-    //     set_page_ref(page, 1);
-    //     uintptr_t pa = page2pa(page);
-    //     memset(KADDR(pa), 0, PGSIZE);
-    //     *pdep = pa | PTE_U | PTE_W | PTE_P;
-    // }
-    // return &((pte_t *)KADDR(PDE_ADDR(*pdep)))[PTX(la)];
-    pde_t *pdep = pgdir+PDX(la);   			//由页目录表基址pgdir与页内偏移得到表项
-    if (! (*pdep & PTE_P))					//如果该表项没有对应的二级页表则进行下列操作
-    {   
-        if(create)							//如果需要创建二级页表则进行创建
-        {
-            struct Page *p = alloc_page();	//新建页表
-            set_page_ref(p, 1); 			//页表引用数增加
-            uintptr_t pa = page2pa(p);		//获得该页对应的物理地址
-            memset(KADDR(pa), 0, PGSIZE); 	//获得该页对应的虚拟地址，并把页表初始化
-            *pdep = (uintptr_t)KADDR(pa) | (PTE_P+PTE_W+PTE_U);
-            		//获得该页的虚拟地址并且修改标志位，之后更新页目录表中的地址
+    pde_t *pdep = &pgdir[PDX(la)];
+    if (!(*pdep & PTE_P)) {
+        struct Page *page;
+        if (!create || (page = alloc_page()) == NULL) {
+            return NULL;
         }
-        else 
-            return NULL;					//不需要创建且无二级页表则转换失败
+        set_page_ref(page, 1);
+        uintptr_t pa = page2pa(page);
+        memset(KADDR(pa), 0, PGSIZE);
+        *pdep = pa | PTE_U | PTE_W | PTE_P;
     }
-    return   (pte_t *)(PDE_ADDR(*pdep)) + PTX(la);
-    //获得二级页表表项
-   	//PDE_ADDR(*pdep)为根据页目录表的表项获取二级页表基址，即表项舍弃后12位标志位。
-   	//(pte_t *)为转换为二级页表表项的指针
-    //PTX(la)为表内偏移
-    //最终和为la对应的二级页表表项
+    return &((pte_t *)KADDR(PDE_ADDR(*pdep)))[PTX(la)];
+    
 }
 
 //get_page - get related Page struct for linear address la using PDT pgdir
