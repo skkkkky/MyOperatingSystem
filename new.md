@@ -1,6 +1,5 @@
-Check PMM:               (2.1s)
-  -check pmm:                                OK
-  -check page table:                         OK
-  -check ticks:                              OK
-Total Score: 50/50
+check_vma_struct() succeeded!
+page fault at 0x00000100: K/W [no page found].
+check_pgfault() succeeded!
+check_vmm() succeeded.
 
